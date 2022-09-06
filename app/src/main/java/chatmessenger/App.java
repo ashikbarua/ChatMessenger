@@ -5,17 +5,17 @@ package chatmessenger;
 
 import chatmessenger.http.InitServer;
 
+import java.util.Scanner;
+
+import chatmessenger.http.ChatHttpClient;
+
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
-    }
-
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-        InitServer initServer = new InitServer();
 
+        new Thread(new ChatHttpClient("192.168.1.123")).start();
+        
         try{
-            initServer.init();
+            new Thread(new InitServer()).start();;
         }
         catch (Exception e){
             System.out.println("Bleh");

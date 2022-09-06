@@ -6,16 +6,17 @@ package chatmessenger;
 import chatmessenger.http.InitServer;
 
 public class App {
-    public String getGreeting() {
-        return "Hello World!";
+
+    public void getGreeting(){
+        System.out.println("Hello world!");
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-        InitServer initServer = new InitServer();
+        new App().getGreeting();
+        InitServer server = new InitServer();
 
         try{
-            initServer.init();
+            server.init();
         }
         catch (Exception e){
             System.out.println("Bleh");

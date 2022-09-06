@@ -7,7 +7,7 @@ public class InitServer {
     
     public void init() throws Exception{
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-        server.createContext("/test", new ChatHttpHandler());
+        server.createContext("/chat", new ChatHttpHandler());
         server.setExecutor(null); // creates a default executor
         server.start();
     }

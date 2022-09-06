@@ -3,12 +3,22 @@
  */
 package chatmessenger;
 
+import chatmessenger.http.InitServer;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
     public static void main(String[] args) {
-        System.out.println(args[0]);
+        System.out.println(new App().getGreeting());
+        InitServer initServer = new InitServer();
+
+        try{
+            initServer.init();
+        }
+        catch (Exception e){
+            System.out.println("Bleh");
+        }
     }
 }
